@@ -1,70 +1,4 @@
-type Project = {
-  name: string;
-  href: string;
-}
-
-type Config = {
-  profile: {
-    name: string;
-    image: string;
-    role: string;
-    bio: string;
-    email: string;
-    linkedin: string;
-    github: string;
-    instagram: string;
-  };
-  projects?: Project[];
-  blog: {
-    title: string;
-    description: string;
-    scheme: string;
-  };
-  link: string;
-  since: number;
-  lang: string;
-  ogImageGenerateURL: string;
-  notionConfig: {
-    pageId: string;
-  };
-  googleAnalytics: {
-    enable: boolean;
-    config: {
-      measurementId: string;
-    };
-  };
-  googleSearchConsole: {
-    enable: boolean;
-    config: {
-      siteVerification: string;
-    };
-  };
-  naverSearchAdvisor: {
-    enable: boolean;
-    config: {
-      siteVerification: string;
-    };
-  };
-  utterances: {
-    enable: boolean;
-    config: {
-      repo: string;
-      "issue-term": string;
-      label: string;
-    };
-  };
-  cusdis: {
-    enable: boolean;
-    config: {
-      host: string;
-      appid: string;
-    };
-  };
-  isProd: boolean;
-  revalidateTime: number;
-}
-
-const CONFIG: Config = {
+const CONFIG = {
   profile: {
     name: "narashin",
     image: "./notion-avatar.svg",
@@ -75,7 +9,7 @@ const CONFIG: Config = {
     github: "narashin",
     instagram: "spacediscoman",
   },
-  projects: [], // 여기에 빈 배열로 설정하거나 완전히 제거할 수 있습니다.
+  projects: [],
   blog: {
     title: "naralog",
     description: "welcome to naralog!",
