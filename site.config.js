@@ -10,7 +10,7 @@ const CONFIG = {
     github: "narashin",
     instagram: "spacediscoman",
   },
-  projects: [],
+  projects: [] as { name: string; href: string }[],
   // blog setting (required)
   blog: {
     title: "naralog",
