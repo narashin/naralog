@@ -6,15 +6,15 @@ const CONFIG = {
     role: "Software Engineer",
     bio: "쓰고 만듭니다",
     email: "ca3rot@gmail.com",
-    linkedin: "narashin",
+    linkedin: "shinnara",
     github: "narashin",
-    instagram: "",
+    instagram: "spacediscoman",
   },
   projects: [
-    {
-      name: `naralog`,
-      href: "https://github.com/narashin/morethan-log",
-    },
+    // {
+    //   name: `naralog`,
+    //   href: "https://github.com/narashin/morethan-log",
+    // },
   ],
   // blog setting (required)
   blog: {
