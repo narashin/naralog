@@ -1,68 +1,4 @@
 const CONFIG = {
-  profile: {
-    name: "narashin",
-    image: "./notion-avatar.svg",
-    role: "Software Engineer",
-    bio: "쓰고 만듭니다",
-    email: "ca3rot@gmail.com",
-    linkedin: "shinnara",
-    github: "narashin",
-    instagram: "spacediscoman",
-  },
-  projects: [],
-  blog: {
-    title: "naralog",
-    description: "welcome to naralog!",
-    scheme: "system",
-  },
-  link: "https://naralog.vercel.app",
-  since: 2024,
-  lang: "ko-KR",
-  ogImageGenerateURL: "https://og-image-korean.vercel.app",
-  notionConfig: {
-    pageId: process.env.NOTION_PAGE_ID || '',
-  },
-  googleAnalytics: {
-    enable: false,
-    config: {
-      measurementId: process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID || "",
-    },
-  },
-  googleSearchConsole: {
-    enable: false,
-    config: {
-      siteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
-    },
-  },
-  naverSearchAdvisor: {
-    enable: false,
-    config: {
-      siteVerification: process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION || "",
-    },
-  },
-  utterances: {
-    enable: true,
-    config: {
-      repo: process.env.NEXT_PUBLIC_UTTERANCES_REPO || "",
-      "issue-term": "og:title",
-      label: "💬 Utterances",
-    },
-  },
-  cusdis: {
-    enable: false,
-    config: {
-      host: "https://cusdis.com",
-      appid: "",
-    },
-  },
-  isProd: process.env.VERCEL_ENV === "production",
-  revalidateTime: 3600,
-};
-
-export { CONFIG };
-
-
-const CONFIG: Config = {
   // profile setting (required)
   profile: {
     name: "narashin",
@@ -74,12 +10,7 @@ const CONFIG: Config = {
     github: "narashin",
     instagram: "spacediscoman",
   },
-  // projects: [
-  //    {
-  //      name: `naralog`,
-  //      href: "https://github.com/narashin/morethan-log",
-  //    },
-  // ],
+  projects: [],
   // blog setting (required)
   blog: {
     title: "naralog",
