@@ -11,14 +11,14 @@ interface Project {
 
 const ServiceCard: React.FC = () => {
   const projects: Project[] = CONFIG.projects;
-  if (!CONFIG.projects || CONFIG.projects.length === 0) return null
+  if (!projects || projects.length === 0) return null
   return (
     <>
       <StyledTitle>
         <Emoji>🌟</Emoji> Service
       </StyledTitle>
       <StyledWrapper>
-        {CONFIG.projects.map((project, idx) => (
+        {projects.map((project, idx) => (
           <a
             key={idx}
             href={`${project.href}`}
