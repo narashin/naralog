@@ -10,12 +10,12 @@ const CONFIG = {
     github: "narashin",
     instagram: "spacediscoman",
   },
-  projects: [
+  // projects: [
     // {
     //   name: `naralog`,
     //   href: "https://github.com/narashin/morethan-log",
     // },
-  ],
+  // ],
   // blog setting (required)
   blog: {
     title: "naralog",
