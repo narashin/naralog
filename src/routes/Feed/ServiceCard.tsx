@@ -5,6 +5,7 @@ import styled from "@emotion/styled"
 import { Emoji } from "src/components/Emoji"
 
 const ServiceCard: React.FC = () => {
+  console.log(CONFIG.projects.length);
   if (!CONFIG.projects || CONFIG.projects.length === 0) return null
   return (
     <>
