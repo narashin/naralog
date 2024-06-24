@@ -4,7 +4,13 @@ import { AiFillCodeSandboxCircle } from "react-icons/ai"
 import styled from "@emotion/styled"
 import { Emoji } from "src/components/Emoji"
 
+interface Project {
+  name: string;
+  href: string;
+}
+
 const ServiceCard: React.FC = () => {
+  const projects: Project[] = CONFIG.projects;
   if (!CONFIG.projects || CONFIG.projects.length === 0) return null
   return (
     <>
