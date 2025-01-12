@@ -22,21 +22,14 @@ const filter: FilterPostsOptions = {
   acceptType: ["Paper", "Post", "Page"],
 }
 
-export async function getStaticPaths() {
-  const posts = await getPosts();
+export const getStaticPaths = async () => {
+  const posts = await getPosts()
+  const filteredPost = filterPosts(posts, filter)
 
-  // posts가 undefined거나 빈 배열일 경우 기본값으로 빈 배열 할당
-  if (!posts || posts.length === 0) {
-    return { paths: [], fallback: false };
+  return {
+    paths: filteredPost.map((row) => `/${row.slug}`),
+    fallback: true,
   }
-
-  const paths = posts
-    .filter((post) => post?.slug) // slug가 undefined인 경우도 방어
-    .map((post) => ({
-      params: { slug: post.slug },
-    }));
-
-  return { paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
