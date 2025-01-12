@@ -1,30 +1,42 @@
-import Detail from "src/routes/Detail"
-import { filterPosts } from "src/libs/utils/notion"
-import { CONFIG } from "site.config"
-import { NextPageWithLayout } from "../types"
-import CustomError from "src/routes/Error"
-import { getRecordMap, getPosts } from "src/apis"
-import MetaConfig from "src/components/MetaConfig"
 import { GetStaticProps } from "next"
-import { queryClient } from "src/libs/react-query"
+import { CONFIG } from "site.config"
+import {
+  getPosts,
+  getRecordMap,
+} from "src/apis"
+import MetaConfig from "src/components/MetaConfig"
 import { queryKey } from "src/constants/queryKey"
-import { dehydrate } from "@tanstack/react-query"
 import usePostQuery from "src/hooks/usePostQuery"
+import { queryClient } from "src/libs/react-query"
+import { filterPosts } from "src/libs/utils/notion"
 import { FilterPostsOptions } from "src/libs/utils/notion/filterPosts"
+import Detail from "src/routes/Detail"
+import CustomError from "src/routes/Error"
+
+import { dehydrate } from "@tanstack/react-query"
+
+import { NextPageWithLayout } from "../types"
 
 const filter: FilterPostsOptions = {
   acceptStatus: ["Public", "PublicOnDetail"],
   acceptType: ["Paper", "Post", "Page"],
 }
 
-export const getStaticPaths = async () => {
-  const posts = await getPosts()
-  const filteredPost = filterPosts(posts, filter)
+export async function getStaticPaths() {
+  const posts = await getPosts();
 
-  return {
-    paths: filteredPost.map((row) => `/${row.slug}`),
-    fallback: true,
+  // posts가 undefined거나 빈 배열일 경우 기본값으로 빈 배열 할당
+  if (!posts || posts.length === 0) {
+    return { paths: [], fallback: false };
   }
+
+  const paths = posts
+    .filter((post) => post?.slug) // slug가 undefined인 경우도 방어
+    .map((post) => ({
+      params: { slug: post.slug },
+    }));
+
+  return { paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
